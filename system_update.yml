@@ -1,0 +1,14 @@
+- name: Update System
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+
+  - name: Repo Update
+    yum:
+      uppdate_cache: yes
+  - name: Upgrade all packages to the latest version
+    yum:
+      name: "*"
+      state: latest

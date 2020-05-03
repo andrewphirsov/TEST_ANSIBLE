@@ -1,0 +1,9 @@
+- name: Set host name
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+  - name: Set Hostname
+    hostname:
+      name: "{{hostname}}"

@@ -1,0 +1,10 @@
+- name: Install Packages
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+  - name: install dafault packages
+    yum:
+      name: "{{packages}}"
+      state: present
