@@ -1,0 +1,23 @@
+- name: Create User and Folder
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Crate User
+      user:
+        name: "{{new_user}}"
+        home: "/home/{{new_user}}"
+        shell: /bin/bash
+        groups: "{{new_user}}"
+        append: yes
+        password: "{{user_pw}}"
+
+    - name: Create Folder
+      file:
+        path: "/var/www/{{new_user}}"
+        state: directory
+        recurse: yes
+        owner: "{{new_user}}"
+        group: "{{new_user}}"
+        mode: 0755
