@@ -2,7 +2,10 @@
   gather_facts: yes
   become: yes
 
+  vars_files:
+    - vars.yml
   tasks:
+
   - name: install dafault packages
     yum:
       name: "{{packages}}"

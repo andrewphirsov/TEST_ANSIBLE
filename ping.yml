@@ -1,5 +1,4 @@
-- name: Ping
-  hosts: all
+- hosts: all
   gather_facts: yes
   become: yes
 
