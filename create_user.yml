@@ -3,7 +3,10 @@
   become: yes
 
   tasks:
-    - name: Crate User
+    - name: Crate User and Group
+      group:
+        name: "{{new_user}}"
+        state: present
       user:
         name: "{{new_user}}"
         home: "/home/{{new_user}}"
